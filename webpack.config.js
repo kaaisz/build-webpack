@@ -16,4 +16,8 @@ module.exports = {
     // 'main.js' will be automatically add, if you not specified
     filename: 'main.js',
   },
+
+  // when 'mode' set into production, output will be minify,
+  // when 'mode' set into development, output will be readable,
+  mode: 'development',
 };
