@@ -20,4 +20,11 @@ module.exports = {
   // when 'mode' set into production, output will be minify,
   // when 'mode' set into development, output will be readable,
   mode: 'development',
+
+  // to run localhost (normally 8080)
+  // this code will open localhost when webpack has been executed
+  devServer: {
+    contentBase: 'dist',
+    open: true,
+  }
 };
