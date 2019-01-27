@@ -1,12 +1,9 @@
 // when 'mode' set into production, output will be minify,
 // when 'mode' set into development, output will be readable,
 const MODE = 'development';
-
 const enabledSourceMap = (MODE === 'development');
 
-
 module.exports = {
-
   // JS file as a main - this should be an entry point
   // - 'src/index.js' will automatically add, if you not specified
   entry: `./src/index.js`,
