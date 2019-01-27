@@ -1,4 +1,12 @@
+// when 'mode' set into production, output will be minify,
+// when 'mode' set into development, output will be readable,
+const MODE = 'development';
+
+const enabledSourceMap = (MODE === 'development');
+
+
 module.exports = {
+
   // JS file as a main - this should be an entry point
   // - 'src/index.js' will automatically add, if you not specified
   entry: `./src/index.js`,
@@ -17,9 +25,52 @@ module.exports = {
     filename: 'main.js',
   },
 
-  // when 'mode' set into production, output will be minify,
-  // when 'mode' set into development, output will be readable,
-  mode: 'development',
+  
+  mode: MODE, // equals to the variable which you specified above
+  module: {
+    rules: [
+
+      // load and compile sass
+      {
+        test: /\.scss/, // suffix for the file which you want to convert
+        // loader name
+        use: [
+          // to output to link tag
+          'style-loader',
+          // to bundle CSS
+          {
+            loader: 'css-loader',
+            options: {
+              // take in url() method in CSS in this options
+              url: true,
+              // enable or disable sourcemap
+              sourceMap: enabledSourceMap,
+              // 0 => no loaders (default);
+              // 1 => postcss-loader;
+              // 2 => postcss-loader, sass-loader
+              importLoaders: 2
+            },
+          },
+          // to bundle Sass
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: enabledSourceMap,
+            }
+          }
+        ],
+      },
+
+
+      // URL loader
+      {
+        // target files
+        test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
+        // capture image as base64
+        loader: 'url-loader',
+      },
+    ],
+  },
 
   // to run localhost (normally 8080)
   // this code will open localhost when webpack has been executed
