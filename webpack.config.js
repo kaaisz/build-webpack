@@ -3,6 +3,8 @@
 const MODE = 'development';
 const enabledSourceMap = (MODE === 'development');
 
+const path = require('path')
+
 module.exports = {
   // JS file as a main - this should be an entry point
   // - 'src/index.js' will automatically add, if you not specified
@@ -15,7 +17,7 @@ module.exports = {
     // where do you wanna place output file
     // 'dist' will be automatically add, if you not specified
     // you can ignore this code below instead of 'dist' will be automatically add
-    path: `${__dirname}/dist`, 
+    path: `${__dirname}/`, 
 
     // what name do you wanna add to the output file
     // 'main.js' will be automatically add, if you not specified
@@ -72,7 +74,8 @@ module.exports = {
   // to run localhost (normally 8080)
   // this code will open localhost when webpack has been executed
   devServer: {
-    contentBase: 'dist',
-    open: true,
+    contentBase: './',
+    compress: true,
+    port: 9000,
   }
 };

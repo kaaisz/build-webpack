@@ -72,7 +72,7 @@ Webpack can deal with every resource as the modules, not only JS but even in CSS
 Loader needs to prepare if you want to exchange with files except JS.
 bundle could be faster than reading pure CSS files thanks to request is much less than reading pure JS files.
 
-1. `npm insall` like below: (this process is continuing from the last fundamental one)
+1. `npm install` like below: (this process is continuing from the last fundamental one)
 ```
 npm i -D webpack webpack-cli style-loader css-loader
 ```
