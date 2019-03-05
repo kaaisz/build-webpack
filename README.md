@@ -1,4 +1,4 @@
-# Z magazine
+# build-webpack
 
 this is built with webpack for the first time to learn how to build environment
 
